@@ -18,25 +18,25 @@ Aplicación web fullstack para una tienda online, desarrollada con **Next.js** e
 
 - bash
 
-- cd frontend
-- npm install
+-- cd frontend
+   npm install
 
-- cd ../backend
-- npm install
+-- cd ../backend
+   npm install
 
 ## 📦 Variables de entorno
 
 - frontend/.env **Crear archivo a la altura raiz de frontend**
 
-- NEXT_PUBLIC_API_URL=http://localhost:3001 **IMPORTANTE**
+  NEXT_PUBLIC_API_URL=http://localhost:3001 **IMPORTANTE**
 
 ## Ejecución local
 
 - cd backend
-- npm run start
+  npm run start
 
 - cd ../frontend
-- npm run dev
+  npm run dev
 
 ### 🔧 Requisitos previos
 
