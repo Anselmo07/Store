@@ -6,7 +6,8 @@ const Cart = () => {
   const { cart } = useCart(); // ✅ usamos el estado global
 
   return (
-    <div className={styles.container}>
+    <div className={styles.section}>
+      <div className={styles.container}>
       <h2 className={styles.title}>🛒 Cart</h2>
       {cart.items.length === 0 ? (
         <p className={styles.empty}>Your cart is empty, add some products.</p>
@@ -24,6 +25,8 @@ const Cart = () => {
         </>
       )}
     </div>
+    </div>
+    
   );
 };
 

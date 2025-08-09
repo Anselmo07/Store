@@ -6,8 +6,10 @@ import { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList';
 import Cart from '../components/Cart';
 import BestCombo from '../components/BestCombination';
+import Footer from '../components/Footer'
 import { Product } from '../types/Product';
 import { useCart } from '../context/CartContext';
+import ProductCarousel from '@/components/ProductCarousel';
 
 export default function Page() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -34,6 +36,7 @@ export default function Page() {
       console.error('❌ No se pudo agregar al carrito');
     }
   };
+  
 
   return (
   <div className={styles.container}>
@@ -51,8 +54,15 @@ export default function Page() {
       </div>
     </header>
     <ProductList products={products} onAdd={handleAddToCart} />
+    <ProductCarousel
+  topProducts={products.slice(0, 8)}
+  bottomProducts={products.slice(7, 15)}
+  minVisualCount={40}
+/>
+
     <Cart />
     <BestCombo products={products} />
+    <Footer />
   </div>
 );
 

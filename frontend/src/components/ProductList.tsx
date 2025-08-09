@@ -2,6 +2,7 @@ import { Product } from '../types/Product';
 import { useCart } from '../context/CartContext';
 import styles from '../style/ProductList.module.css';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface Props {
   products: Product[];
@@ -9,11 +10,34 @@ interface Props {
 }
 
 const ProductList = ({ products, onAdd }: Props) => {
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
   return (
     <div>
       <div className={styles.title}>
         <h1>Check out all the products we have for you, you'll miss out!</h1>
       </div>
+
+       <div className={styles.searchWrapper}>
+  <input
+    type="text"
+    placeholder="Search products..."
+    value={searchTerm}
+    onChange={e => setSearchTerm(e.target.value)}
+    className={styles.searchInput}
+  />
+  <button
+    onClick={() => setSearchTerm(searchTerm)} // opcional, ya filtra en tiempo real
+    className={styles.searchButton}
+  >
+    Search
+  </button>
+</div>
 
       <div className={styles.grid}>
         {products.map(product => (

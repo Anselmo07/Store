@@ -1,3 +1,13 @@
+.section{
+  background-image: url("https://static.vecteezy.com/system/resources/previews/025/500/988/non_2x/cropped-shot-of-women-with-shopping-bags-sitting-on-bench-in-city-group-of-women-sitting-on-the-bench-with-shopping-bags-ai-generated-free-photo.jpg");
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
+}
 .container {
   max-width: 600px;
   margin: 2rem auto;
@@ -5,6 +15,7 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
 }
 
 .title {

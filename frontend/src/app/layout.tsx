@@ -1,17 +1,21 @@
 // src/app/layout.tsx
-'use client';
-
 import './globals.css';
-import { CartProvider } from '../context/CartContext';
+import ClientWrapper from '../components/ClientWrapper';
+
+export const metadata = {
+  title: 'Free Market',
+  icons: {
+    icon: '/cart.png',
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <body>
-        <CartProvider>
-          {children}
-        </CartProvider>
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );
 }
+

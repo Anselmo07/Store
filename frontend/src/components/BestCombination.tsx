@@ -21,7 +21,8 @@ const BestCombo = ({ products }: Props) => {
 
   return (
     <div className={styles.container}>
-      <h2>🎯 Mejor combinación</h2>
+      <h2 className={styles.titleCombination}> 
+Enter your desired budget <br /> and we'll give you the best       possible purchase option.</h2>
       <input
         type="number"
         className={styles.input}
@@ -30,12 +31,12 @@ const BestCombo = ({ products }: Props) => {
         onChange={e => setBudget(Number(e.target.value))}
       />
       <button className={styles.button} onClick={handleFindCombo}>
-        Buscar combinación
+        Search
       </button>
 
       <div className={styles.result}>
         {combo.length === 0 ? (
-          <p>No hay productos que se ajusten al presupuesto.</p>
+          <p>There are no products that fit the budget.</p>
         ) : (
           <ul className={styles.list}>
             {combo.map(p => (
