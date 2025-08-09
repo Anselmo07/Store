@@ -18,10 +18,10 @@ Aplicación web fullstack para una tienda online, desarrollada con **Next.js** e
 
 - bash
 
--- cd frontend
+- cd frontend
    npm install
 
--- cd ../backend
+- cd ../backend
    npm install
 
 ## 📦 Variables de entorno
