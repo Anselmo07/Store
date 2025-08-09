@@ -23,7 +23,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<CartResponse>({ items: [], total: 0 });
 
   const refreshCart = () => {
-    fetch('http://localhost:3001/cart')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart`)
       .then(res => res.json())
       .then(setCart)
       .catch(err => {

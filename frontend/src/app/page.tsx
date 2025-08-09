@@ -16,7 +16,7 @@ export default function Page() {
   const { refreshCart } = useCart();
 
   useEffect(() => {
-    fetch('http://localhost:3001/products')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
       .then(res => res.json())
       .then(setProducts)
       .catch(err => console.error('❌ Error al cargar productos:', err));
@@ -24,7 +24,7 @@ export default function Page() {
 
   const handleAddToCart = async (id: number) => {
     try {
-      const res = await fetch('http://localhost:3001/cart', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id }),
