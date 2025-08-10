@@ -22,7 +22,7 @@ const BestCombo = ({ products }: Props) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.titleCombination}> 
-Enter your desired budget <br /> and we'll give you the best       possible purchase option.</h2>
+        Enter your desired budget <br /> and we&apos;ll give you the best possible purchase option.</h2>
       <input
         type="number"
         className={styles.input}

@@ -20,7 +20,7 @@ const ProductList = ({ products, onAdd }: Props) => {
   return (
     <div>
       <div className={styles.title}>
-        <h1>Check out all the products we have for you, you'll miss out!</h1>
+        <h1>Check out all the products we have for you, you&apos;ll miss out!</h1>
       </div>
 
        <div className={styles.searchWrapper}>
