@@ -1,54 +1,87 @@
 # 🛍️ Store App
 
-Aplicación web fullstack para una tienda online, desarrollada con **Next.js** en el frontend y **Node.js + Express/NestJS** en el backend. Incluye componentes visuales animados, carrousels infinitos, layouts modernos y conexión dinámica con una API REST.
+Aplicación web Fullstack para una tienda online, desarrollada con Next.js en el frontend y Node.js + Express/NestJS en el backend.  
+Incluye componentes visuales animados, carruseles infinitos, diseños modernos y conexión dinámica con una API REST.
 
 ---
 
-## 🚀 Tecnologías
+## ✨ Características principales
 
-- **Frontend**: Next.js, React, CSS Modules, MUI
-- **Backend**: Node.js, Express/NestJS, PostgreSQL
-- **Otros**: TypeORM, Vite (dev tools), helpers reutilizables, validación centralizada
+- Diseño moderno y responsive adaptado a cualquier dispositivo  
+- Carruseles infinitos para mostrar productos  
+- Renderizado rápido con Next.js y optimización de imágenes  
+- Autenticación y seguridad con validaciones centralizadas  
+- Gestión de base de datos con TypeORM y PostgreSQL  
+- Código modular y reutilizable para escalabilidad del proyecto  
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+Frontend:
+- Next.js
+- React
+- CSS Modules
+- Material UI (MUI)
+
+Backend:
+- Node.js
+- Express / NestJS
+- PostgreSQL
+
+Otros:
+- TypeORM
+- Vite (herramientas de desarrollo)
+- Helpers reutilizables
+- Validación centralizada
 
 ---
 
 ## 📦 Instalación
 
-- Instalación de dependencias
+1. Clonar el repositorio:
+git clone https://github.com/tu-usuario/store.git
+cd store
 
-- bash
+2. Instalar dependencias:
+cd frontend
+npm install
 
-- cd frontend
-   npm install
-
-- cd ../backend
-   npm install
-
-## 📦 Variables de entorno
-
-- frontend/.env **Crear archivo a la altura raiz de frontend**
-
-  NEXT_PUBLIC_API_URL=http://localhost:3001 **IMPORTANTE**
-
-## Ejecución local
-
-- cd backend
-  npm run start
-
-- cd ../frontend
-  npm run dev
-
-### 🔧 Requisitos previos
-
-- Node.js ≥ 18
-- PostgreSQL corriendo localmente o en la nube
-- Yarn o npm
-- Git
+cd ../backend
+npm install
 
 ---
 
-## 📁 Clonar el repositorio
+## ⚙️ Configuración de variables de entorno
 
-```bash
-git clone https://github.com/tu-usuario/store.git
-cd store
+En el frontend, crea un archivo .env en la raíz con el siguiente contenido:
+NEXT_PUBLIC_API_URL=http://localhost:3001
+
+IMPORTANTE: Ajusta la URL según tu entorno.
+
+---
+
+## ▶️ Ejecución en local
+
+1. Backend:
+cd backend
+npm run start
+
+2. Frontend:
+cd ../frontend
+npm run dev
+
+---
+
+## 🔧 Requisitos previos
+
+- Node.js >= 18
+- PostgreSQL (local o en la nube)
+- Yarn o npm
+- Git instalado
+
+---
+
+## 📷 Capturas de pantalla (opcional)
+
+Aquí puedes añadir imágenes del proyecto en ejecución para mostrar el diseño y la funcionalidad.
