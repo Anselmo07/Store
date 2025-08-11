@@ -19,7 +19,7 @@ export default function Page() {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
       .then(res => res.json())
       .then(setProducts)
-      .catch(err => console.error('❌ Error al cargar productos:', err));
+      .catch(err => console.error('❌ Error loading products: ', err));
   }, []);
 
   const handleAddToCart = async (id: number) => {
@@ -30,12 +30,26 @@ export default function Page() {
         body: JSON.stringify({ id }),
       });
 
-      if (!res.ok) throw new Error('Error al agregar al carrito');
+      if (!res.ok) throw new Error('Error adding to cart');
       refreshCart();
     } catch (err) {
-      console.error('❌ No se pudo agregar al carrito');
+      console.error('❌ Could not add to cart');
     }
   };
+
+  const handleRemoveFromCart = async (id: number) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!res.ok) throw new Error('Error deleting cart');
+    refreshCart();
+  } catch (err) {
+    console.error('❌ Could not be removed from cart');
+  }
+};
+
   
 
   return (
@@ -55,12 +69,11 @@ export default function Page() {
     </header>
     <ProductList products={products} onAdd={handleAddToCart} />
     <ProductCarousel
-  topProducts={products.slice(0, 8)}
-  bottomProducts={products.slice(7, 15)}
-  minVisualCount={40}
-/>
-
-    <Cart />
+      topProducts={products.slice(0, 8)}
+      bottomProducts={products.slice(7, 15)}
+      minVisualCount={40}
+    />
+    <Cart onRemove={handleRemoveFromCart} />
     <BestCombo products={products} />
     <Footer />
   </div>

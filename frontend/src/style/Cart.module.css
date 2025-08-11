@@ -38,6 +38,7 @@
 .item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.8rem 0;
   border-bottom: 1px solid #eee;
 }
@@ -47,8 +48,31 @@
   color: #333;
 }
 
-.price {
-  color: #666;
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trashIcon {
+  vertical-align: middle;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.removeBtn:hover .trashIcon {
+  transform: scale(1.2);
+}
+
+.removeBtn {
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
 }
 
 .total {
