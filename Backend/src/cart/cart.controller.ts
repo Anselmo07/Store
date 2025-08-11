@@ -1,5 +1,13 @@
 // src/cart/cart.controller.ts
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Delete,
+  Param,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { CartService } from './cart.service';
 
 @Controller('cart')
@@ -14,5 +22,10 @@ export class CartController {
   @Post()
   addToCart(@Body('id') id: number) {
     return this.cartService.addProduct(id);
+  }
+
+  @Delete(':id')
+  removeFromCart(@Param('id', ParseIntPipe) id: number) {
+    return this.cartService.removeProduct(id);
   }
 }

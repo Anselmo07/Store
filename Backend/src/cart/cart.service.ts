@@ -25,4 +25,16 @@ export class CartService {
       total,
     };
   }
+
+  removeProduct(id: number) {
+    const index = this.cart.findIndex((item) => item.id === id);
+    if (index === -1) {
+      throw new Error('Producto no está en el carrito');
+    }
+    const removed = this.cart.splice(index, 1)[0];
+    return {
+      message: 'Producto eliminado del carrito',
+      removed,
+    };
+  }
 }
