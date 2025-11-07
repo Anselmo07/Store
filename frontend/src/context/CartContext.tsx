@@ -1,7 +1,10 @@
 // context/CartContext.tsx
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import { createContext, useContext, useState, useEffect } from 'react';
 
 interface CartItem {
+  img: string | StaticImport;
+  quantity: number;
   id: number;
   name: string;
   price: number;

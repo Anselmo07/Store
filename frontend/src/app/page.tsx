@@ -6,14 +6,19 @@ import { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList';
 import Cart from '../components/Cart';
 import BestCombo from '../components/BestCombination';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
 import { Product } from '../types/Product';
 import { useCart } from '../context/CartContext';
 import ProductCarousel from '@/components/ProductCarousel';
 
 export default function Page() {
   const [products, setProducts] = useState<Product[]>([]);
-  const { refreshCart } = useCart();
+  const { cart, refreshCart } = useCart();
+
+  const itemCount = cart.items.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
@@ -38,45 +43,60 @@ export default function Page() {
   };
 
   const handleRemoveFromCart = async (id: number) => {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart/${id}`, {
-      method: 'DELETE',
-    });
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart/${id}`, {
+        method: 'DELETE',
+      });
 
-    if (!res.ok) throw new Error('Error deleting cart');
-    refreshCart();
-  } catch (err) {
-    console.error('❌ Could not be removed from cart');
-  }
-};
+      if (!res.ok) throw new Error('Error deleting cart');
+      refreshCart();
+    } catch (err) {
+      console.error('❌ Could not be removed from cart');
+    }
+  };
 
-  
+  const filteredProducts = products.filter(product =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-  <div className={styles.container}>
-    <header className={styles.banner}>
-      <div className={styles.imageWrapper}>
-        <img
-          src="https://i.pinimg.com/1200x/12/c4/e5/12c4e57a1e38ff65aa4137de5636ec93.jpg"
-          alt="Marketplace banner"
-          className={styles.img}
-        />
-        <h1 className={styles.titleOver}>Free Market</h1>
-        <p className={styles.subtitleOver}>
-          Discover the best product combinations based on your budget. Add items to your cart and optimize your spending.
-        </p>
-      </div>
-    </header>
-    <ProductList products={products} onAdd={handleAddToCart} />
-    <ProductCarousel
-      topProducts={products.slice(0, 8)}
-      bottomProducts={products.slice(7, 15)}
-      minVisualCount={40}
-    />
-    <Cart onRemove={handleRemoveFromCart} />
-    <BestCombo products={products} />
-    <Footer />
-  </div>
-);
+    <div className={styles.container}>
+      {/* Navbar */}
+      <header className={styles.navbar}>
+        <div className={styles.navContent}>
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            className={styles.searchInput}
+          />
+          <h1 className={styles.logo}>Free Market</h1>
+          <button onClick={() => setIsCartOpen(true)} className={styles.cartButton}>
+            🛒
+            {itemCount > 0 && <span className={styles.cartBadge}>{itemCount}</span>}
+          </button>
+        </div>
+      </header>
 
+      {/* Modal del carrito */}
+      {isCartOpen && (
+        <div className={styles.modalOverlay} onClick={() => setIsCartOpen(false)}>
+          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <Cart onRemove={handleRemoveFromCart} />
+          </div>
+        </div>
+      )}
+
+      {/* Contenido principal */}
+      <ProductList products={filteredProducts} onAdd={handleAddToCart} />
+      <ProductCarousel
+        topProducts={products.slice(0, 8)}
+        bottomProducts={products.slice(7, 15)}
+        minVisualCount={40}
+      />
+      <BestCombo products={products} />
+      <Footer />
+    </div>
+  );
 }

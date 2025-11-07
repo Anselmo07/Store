@@ -1,4 +1,3 @@
-// components/Cart.tsx
 'use client';
 
 import styles from '../style/Cart.module.css';
@@ -24,8 +23,17 @@ const Cart = ({ onRemove }: Props) => {
             <ul className={styles.list}>
               {cart.items.map((item) => (
                 <li key={item.id} className={styles.item}>
-                  <span className={styles.name}>{item.name}</span>
+                  <span className={styles.name}>
+                    {item.name} {item.quantity > 1 && `x${item.quantity}`}
+                  </span>
                   <div className={styles.priceWrapper}>
+                    <Image
+                      src={item.img}
+                      alt={item.name}
+                      width={40}
+                      height={40}
+                      className={styles.productThumb}
+                    />
                     <span className={styles.price}>${item.price}</span>
                     <button
                       className={styles.removeBtn}

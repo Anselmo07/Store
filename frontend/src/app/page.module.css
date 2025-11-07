@@ -165,3 +165,11 @@ a.secondary {
     filter: invert();
   }
 }
+
+
+.cartButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
