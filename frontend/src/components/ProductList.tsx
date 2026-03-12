@@ -26,9 +26,15 @@ const ProductList = ({ products, onAdd }: Props) => {
             />
             <h3 className={styles.name}>{product.name}</h3>
             <p className={styles.price}>${product.price}</p>
-            <button onClick={() => onAdd(product.id)} className={styles.button}>
-              Add to cart
-            </button>
+            <button
+  onClick={() => {
+    console.log("ADD", product.id);
+    onAdd(product.id);
+  }}
+  className={styles.button}
+>
+  Add to cart
+</button>
           </div>
         ))}
       </div>
