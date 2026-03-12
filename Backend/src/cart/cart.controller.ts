@@ -7,6 +7,7 @@ import {
   Delete,
   Param,
   ParseIntPipe,
+  Headers,
 } from '@nestjs/common';
 import { CartService } from './cart.service';
 
@@ -15,17 +16,20 @@ export class CartController {
   constructor(private readonly cartService: CartService) {}
 
   @Get()
-  getCart() {
-    return this.cartService.getCart();
+  getCart(@Headers('cart-id') cartId: string) {
+    return this.cartService.getCart(cartId);
   }
 
   @Post()
-  addToCart(@Body('id') id: number) {
-    return this.cartService.addProduct(id);
+  addToCart(@Headers('cart-id') cartId: string, @Body('id') id: number) {
+    return this.cartService.addProduct(cartId, id);
   }
 
   @Delete(':id')
-  removeFromCart(@Param('id', ParseIntPipe) id: number) {
-    return this.cartService.removeProduct(id);
+  removeFromCart(
+    @Headers('cart-id') cartId: string,
+    @Param('id', ParseIntPipe) id: number,
+  ) {
+    return this.cartService.removeProduct(cartId, id);
   }
 }

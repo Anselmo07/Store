@@ -4,34 +4,54 @@ import { ProductService } from '../product/product.service';
 
 @Injectable()
 export class CartService {
-  private cart: { id: number; name: string; price: number }[] = [];
+  private carts: Record<string, { id: number; name: string; price: number }[]> =
+    {};
 
   constructor(private readonly productService: ProductService) {}
 
-  addProduct(id: number) {
+  private getUserCart(cartId: string) {
+    if (!this.carts[cartId]) {
+      this.carts[cartId] = [];
+    }
+    return this.carts[cartId];
+  }
+
+  addProduct(cartId: string, id: number) {
     const product = this.productService.findById(id);
+
     if (!product) {
       throw new Error('Producto no encontrado');
     }
-    this.cart.push(product);
+
+    const cart = this.getUserCart(cartId);
+
+    cart.push(product);
+
     return product;
   }
 
-  getCart() {
-    const total = this.cart.reduce((sum, item) => sum + item.price, 0);
+  getCart(cartId: string) {
+    const cart = this.getUserCart(cartId);
+
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
 
     return {
-      items: this.cart,
+      items: cart,
       total,
     };
   }
 
-  removeProduct(id: number) {
-    const index = this.cart.findIndex((item) => item.id === id);
+  removeProduct(cartId: string, id: number) {
+    const cart = this.getUserCart(cartId);
+
+    const index = cart.findIndex((item) => item.id === id);
+
     if (index === -1) {
       throw new Error('Producto no está en el carrito');
     }
-    const removed = this.cart.splice(index, 1)[0];
+
+    const removed = cart.splice(index, 1)[0];
+
     return {
       message: 'Producto eliminado del carrito',
       removed,
