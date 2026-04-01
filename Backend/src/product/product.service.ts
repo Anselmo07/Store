@@ -14,7 +14,7 @@ export class ProductService {
       id: 2,
       name: 'Smart TV',
       price: 600,
-      img: 'https://tiendadiggit.com.ar/web/image/product.template/248678/image_1920?unique=f1d61d8',
+      img: 'https://http2.mlstatic.com/D_NQ_NP_2X_737053-MLA108949673284_032026-F.webp',
     },
     {
       id: 3,
