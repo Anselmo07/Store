@@ -11,6 +11,12 @@ export class Product {
   @Column('decimal')
   price: number;
 
-  @Column({ nullable: true })
+  @Column()
+  img: string;
+
+  @Column({ nullable: true, type: 'text' })
   description?: string;
+
+  @Column({ default: 'electronics' })
+  category: string;
 }

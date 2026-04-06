@@ -1,0 +1,97 @@
+export const products = [
+  // =========================
+  // TECHNOLOGY
+  // =========================
+  {
+    id: 1,
+    name: 'Iphone 13',
+    price: 480,
+    category: 'technology',
+    img: 'https://rossellimac.es/cdn/shop/files/iPhone_13_Green_PDP_Image_Position-1A__ESES_e67dc465-f394-4b34-8f0e-cc0cfb0a2241.jpg?v=1689076091&width=1445',
+  },
+  {
+    id: 2,
+    name: 'Smart TV',
+    price: 600,
+    category: 'technology',
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_737053-MLA108949673284_032026-F.webp',
+  },
+  {
+    id: 3,
+    name: 'Tablet',
+    price: 300,
+    category: 'technology',
+    img: 'https://aws-obg-image-lb-2.tcl.com/content/dam/brandsite/region/global/products/tablets/tcl-nxtpaper-11/id/new/03.jpg',
+  },
+  {
+    id: 4,
+    name: 'Headphones',
+    price: 40,
+    category: 'audio',
+    img: 'https://assets.bosecreative.com/transform/775c3e9a-fcd1-489f-a2f7-a57ac66464e1/SF_QCUH_deepplum_gallery_1_816x612_x2?quality=90',
+  },
+  {
+    id: 5,
+    name: 'Mouse',
+    price: 30,
+    category: 'gaming',
+    img: 'https://row.hyperx.com/cdn/shop/files/hyperx_pulsefire_core_white_pink_2_back_angled.jpg?v=1732516884&width=1946',
+  },
+  {
+    id: 6,
+    name: 'Notebook',
+    price: 400,
+    category: 'technology',
+    img: 'https://acdn-us.mitiendanube.com/stores/001/156/703/products/notebook-gamer-asus-rog-strix-g17-g713pv-ws94-17-ryzen-9-7845hx-1tb-ssd-16gb-rtx-4060-copia-4a3f8882e47fbcca8317314309110054-1024-1024.png',
+  },
+
+  // =========================
+  // FURNITURE
+  // =========================
+  {
+    id: 7,
+    name: 'Modern Sofa',
+    price: 950,
+    category: 'furniture',
+    img: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200',
+  },
+  {
+    id: 8,
+    name: 'Wooden Dining Table',
+    price: 780,
+    category: 'furniture',
+    img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200',
+  },
+  {
+    id: 9,
+    name: 'Office Chair',
+    price: 220,
+    category: 'furniture',
+    img: 'https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=1200',
+  },
+  {
+    id: 10,
+    name: 'Minimalist Desk',
+    price: 340,
+    category: 'furniture',
+    img: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=1200',
+  },
+  {
+    id: 11,
+    name: 'Bookshelf',
+    price: 290,
+    category: 'furniture',
+    img: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200',
+  },
+
+  // =========================
+  // SPORTS
+  // =========================
+  {
+    id: 12,
+    name: 'Bicycle',
+    price: 200,
+    category: 'sports',
+    img: 'https://corrientesbikes.com.ar/wp-content/uploads/2022/12/11-velocidades-3.png',
+  },
+];
