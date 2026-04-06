@@ -4,6 +4,7 @@
 import styles from '../style/Home.module.css';
 import { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList';
+import ProductHouse from '../components/ProductHouse';
 import Cart from '../components/Cart';
 import BestCombo from '../components/BestCombination';
 import Footer from '../components/Footer';
@@ -128,6 +129,12 @@ export default function Page() {
 
       {/* Contenido principal */}
       <ProductList products={filteredProducts} onAdd={handleAddToCart} />
+
+      <ProductHouse
+        title="You may also like"
+        products={products.slice(0, 6)}
+        onAdd={handleAddToCart}
+      />
 
       <ProductCarousel
         topProducts={products.slice(0, 8)}

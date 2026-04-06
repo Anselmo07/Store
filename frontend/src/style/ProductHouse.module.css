@@ -1,0 +1,107 @@
+.section {
+  margin: 3rem 0;
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.row {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+}
+
+.row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.row::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 10px;
+}
+
+.row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card {
+  min-width: 220px;
+  max-width: 220px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, border 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border: 1px solid #00ff88;
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #000;
+}
+
+.name {
+  font-size: 1rem;
+  color: white;
+  margin: 1rem 0 0.5rem;
+  min-height: 48px;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: #00ff88;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background: #00ff88;
+  color: black;
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.25s ease;
+}
+
+.button:hover {
+  background: white;
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    min-width: 190px;
+    max-width: 190px;
+  }
+
+  .image {
+    height: 150px;
+  }
+}
