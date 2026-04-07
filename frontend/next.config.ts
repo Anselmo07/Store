@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
       'www.natcam.com',
       'gsmpro.com',
       'media.takealot.com',
+      'images.fravega.com',
+      'encrypted-tbn0.gstatic.com',
+      'cellbell.in',
+      'cdn.mos.cms.futurecdn.net',
     ],
   },
 };
