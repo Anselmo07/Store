@@ -11,17 +11,21 @@ import Footer from '../components/Footer';
 import { Product } from '../types/Product';
 import { useCart } from '../context/CartContext';
 import ProductCarousel from '@/components/ProductCarousel';
+import { getProductsByCategory } from '../services/ProductService';
 
 export default function Page() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [techProducts, setTechProducts] = useState<Product[]>([]);
+  const [furnitureProducts, setFurnitureProducts] = useState<Product[]>([]);
   const { cart, refreshCart } = useCart();
 
-  const itemCount = cart.items.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  const itemCount = cart.items.reduce(
+    (sum, item) => sum + (item.quantity || 1),
+    0
+  );
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // 🔹 Generar o recuperar cartId
   const getCartId = () => {
     let cartId = localStorage.getItem('cartId');
 
@@ -34,36 +38,43 @@ export default function Page() {
   };
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`)
-      .then(res => res.json())
-      .then(setProducts)
-      .catch(err => console.error('❌ Error loading products: ', err));
+    const fetchProducts = async () => {
+      try {
+        const [technology, furniture] = await Promise.all([
+          getProductsByCategory('technology'),
+          getProductsByCategory('furniture'),
+        ]);
+
+        setTechProducts(technology);
+        setFurnitureProducts(furniture);
+      } catch (err) {
+        console.error('❌ Error loading categorized products:', err);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleAddToCart = async (id: number) => {
-  try {
-    const cartId = getCartId();
+    try {
+      const cartId = getCartId();
 
-    console.log("cartId:", cartId);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'cart-id': cartId,
+        },
+        body: JSON.stringify({ id }),
+      });
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'cart-id': cartId
-      },
-      body: JSON.stringify({ id }),
-    });
+      if (!res.ok) throw new Error('Error adding to cart');
 
-    console.log("response:", res);
-
-    if (!res.ok) throw new Error('Error adding to cart');
-
-    refreshCart();
-  } catch (err) {
-    console.error('❌ Could not add to cart', err);
-  }
-};
+      refreshCart();
+    } catch (err) {
+      console.error('❌ Could not add to cart', err);
+    }
+  };
 
   const handleRemoveFromCart = async (id: number) => {
     try {
@@ -72,8 +83,8 @@ export default function Page() {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cart/${id}`, {
         method: 'DELETE',
         headers: {
-          'cart-id': cartId
-        }
+          'cart-id': cartId,
+        },
       });
 
       if (!res.ok) throw new Error('Error deleting cart');
@@ -84,9 +95,11 @@ export default function Page() {
     }
   };
 
-  const filteredProducts = products.filter(product =>
+  const filteredTechProducts = techProducts.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const allProducts = [...techProducts, ...furnitureProducts];
 
   return (
     <div className={styles.container}>
@@ -97,13 +110,16 @@ export default function Page() {
             type="text"
             placeholder="Search products..."
             value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className={styles.searchInput}
           />
 
           <h1 className={styles.logo}>Free Market</h1>
 
-          <button onClick={() => setIsCartOpen(true)} className={styles.cartButton}>
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className={styles.cartButton}
+          >
             🛒
             {itemCount > 0 && (
               <span className={styles.cartBadge}>{itemCount}</span>
@@ -120,29 +136,32 @@ export default function Page() {
         >
           <div
             className={styles.modalContent}
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
           >
             <Cart onRemove={handleRemoveFromCart} />
           </div>
         </div>
       )}
 
-      {/* Contenido principal */}
-      <ProductList products={filteredProducts} onAdd={handleAddToCart} />
+      {/* Tecnología */}
+      <ProductList products={filteredTechProducts} onAdd={handleAddToCart} />
 
+      {/* Muebles */}
       <ProductHouse
-        title="You may also like"
-        products={products.slice(0, 6)}
+        title="Furniture for your home"
+        products={furnitureProducts}
         onAdd={handleAddToCart}
       />
 
+      {/* Carrusel */}
       <ProductCarousel
-        topProducts={products.slice(0, 8)}
-        bottomProducts={products.slice(7, 15)}
+        topProducts={filteredTechProducts.slice(0, 8)}
+        bottomProducts={furnitureProducts.slice(0, 8)}
         minVisualCount={40}
       />
 
-      <BestCombo products={products} />
+      {/* Combo */}
+      <BestCombo products={allProducts} />
 
       <Footer />
     </div>

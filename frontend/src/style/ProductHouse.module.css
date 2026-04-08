@@ -8,10 +8,12 @@
   color: white;
   margin-bottom: 1.5rem;
   text-align: left;
+  text-align: center;
 }
 
 .row {
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
   overflow-x: auto;
   padding-bottom: 1rem;

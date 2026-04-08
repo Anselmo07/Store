@@ -25,6 +25,13 @@ const nextConfig: NextConfig = {
       'encrypted-tbn0.gstatic.com',
       'cellbell.in',
       'cdn.mos.cms.futurecdn.net',
+      "www.comeros.com.ar",
+      "heavenstorage.blob.core.windows.net",
+      "img.global.news.samsung.com",
+      "bioscomputacion.com.ar",
+      
+
+
     ],
   },
 };
