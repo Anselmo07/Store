@@ -1,18 +1,17 @@
-// src/product/product.service.ts
 import { Injectable } from '@nestjs/common';
 import { products } from './data/products.data';
 
 @Injectable()
 export class ProductService {
-  findAll() {
+  findAll(category?: string) {
+    if (category) {
+      return products.filter((product) => product.category === category);
+    }
+
     return products;
   }
 
   findById(id: number) {
     return products.find((p) => p.id === id);
-  }
-
-  findByCategory(category: string) {
-    return products.filter((p) => p.category === category);
   }
 }
