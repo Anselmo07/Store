@@ -122,4 +122,25 @@ export const products = [
     category: 'sports',
     img: 'https://corrientesbikes.com.ar/wp-content/uploads/2022/12/11-velocidades-3.png',
   },
+  {
+    id: 17,
+    name: 'Bike helmet',
+    price: 20,
+    category: 'sports',
+    img: 'https://acdn-us.mitiendanube.com/stores/002/692/526/products/align_taupe_01-e3f8ffdf9805c87bfc17447224868937-1024-1024.jpg',
+  },
+  {
+    id: 18,
+    name: 'Nike',
+    price: 10,
+    category: 'sports',
+    img: 'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4899ca35/products/NIFB7932-010/NIFB7932-010-1.JPG',
+  },
+  {
+    id: 19,
+    name: 'Nike sneakers',
+    price: 60,
+    category: 'sports',
+    img: 'https://sportline.vtexassets.com/arquivos/ids/1455269-800-auto?v=638731355527930000&width=800&height=auto&aspect=true',
+  },
 ];
