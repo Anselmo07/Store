@@ -29,9 +29,8 @@ const nextConfig: NextConfig = {
       "heavenstorage.blob.core.windows.net",
       "img.global.news.samsung.com",
       "bioscomputacion.com.ar",
-      
-
-
+      "www.stockcenter.com.ar",
+      "sportline.vtexassets.com" 
     ],
   },
 };

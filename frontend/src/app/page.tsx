@@ -16,6 +16,7 @@ import { getProductsByCategory } from '../services/ProductService';
 export default function Page() {
   const [techProducts, setTechProducts] = useState<Product[]>([]);
   const [furnitureProducts, setFurnitureProducts] = useState<Product[]>([]);
+  const [sportsProducts, setSportsProducts] = useState<Product[]>([]);
   const { cart, refreshCart } = useCart();
 
   const itemCount = cart.items.reduce(
@@ -40,13 +41,15 @@ export default function Page() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const [technology, furniture] = await Promise.all([
+        const [technology, furniture, sport] = await Promise.all([
           getProductsByCategory('technology'),
           getProductsByCategory('furniture'),
+          getProductsByCategory('sports'),
         ]);
 
         setTechProducts(technology);
         setFurnitureProducts(furniture);
+        setSportsProducts(sport);
       } catch (err) {
         console.error('❌ Error loading categorized products:', err);
       }
@@ -158,6 +161,12 @@ export default function Page() {
         topProducts={filteredTechProducts.slice(0, 8)}
         bottomProducts={furnitureProducts.slice(0, 8)}
         minVisualCount={40}
+      />
+
+      <ProductHouse
+        title="Sports"
+        products={sportsProducts}
+        onAdd={handleAddToCart}
       />
 
       {/* Combo */}
