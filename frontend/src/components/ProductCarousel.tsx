@@ -5,7 +5,7 @@ import { repeatProducts } from '../utils/repeatProducts';
 interface Props {
   topProducts: Product[];
   bottomProducts: Product[];
-  minVisualCount?: number; // opcional para ajustar el ciclo
+  minVisualCount?: number;
 }
 
 const ProductCarousel = ({ topProducts, bottomProducts, minVisualCount = 40 }: Props) => {

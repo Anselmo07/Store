@@ -12,6 +12,7 @@ import { Product } from '../types/Product';
 import { useCart } from '../context/CartContext';
 import ProductCarousel from '@/components/ProductCarousel';
 import { getProductsByCategory } from '../services/ProductService';
+import PromoBanner from "../components/PromoBanner";
 
 export default function Page() {
   const [techProducts, setTechProducts] = useState<Product[]>([]);
@@ -167,6 +168,13 @@ export default function Page() {
         title="Sports"
         products={sportsProducts}
         onAdd={handleAddToCart}
+      />
+
+      <PromoBanner
+        title="LIQUIDACION TOTAL"
+        subtitle="50% OFF + 18 cuotas"
+        title3='Hasta 18 cuotas sin interes'
+        description="Promoción válida por tiempo limitado"
       />
 
       {/* Combo */}

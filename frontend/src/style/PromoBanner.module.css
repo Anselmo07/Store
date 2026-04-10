@@ -1,0 +1,43 @@
+.banner {
+  background: linear-gradient(135deg, #b19999, #332ba0);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin: 3rem 20% 0 20%;
+  border-radius: 12px;
+  border: 3px solid blue;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: blue;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 0 25rem 0 25rem;
+  border-radius: 10px;
+  border: 1px solid blue;
+  background-color: blue;
+  padding: 12px;
+}
+
+.title3 {
+    display: block;
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    opacity: 0.9;
+    color: blue;
+}
+
+.description {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  color: black;
+}
