@@ -143,4 +143,57 @@ export const products = [
     category: 'sports',
     img: 'https://sportline.vtexassets.com/arquivos/ids/1455269-800-auto?v=638731355527930000&width=800&height=auto&aspect=true',
   },
+  {
+    id: 20,
+    name: 'Addidas',
+    price: 90,
+    category: 'sports',
+    img: 'https://www.stockcenter.com.ar/botines-futbol-adidas-copa-pure-2-league-fg/ADIF5448_11.5_1.html',
+  },
+
+  // =========================
+  // Accessories
+  // =========================
+  {
+    id: 21,
+    name: 'Glasses',
+    price: 10,
+    category: 'accessories',
+    img: 'https://es.dreamstime.com/anteojos-de-moda-aislados-en-un-fondo-blanco-image386667943',
+  },
+  {
+    id: 22,
+    name: 'Chain Baby Rouch',
+    price: 120,
+    category: 'accessories',
+    img: 'https://www.0800donrouch.com.ar/images/780/chain_baby_rouch_full_ice_banada_oro_0800_don_rouch2022-06-21-10-33-58pm.jpg',
+  },
+  {
+    id: 23,
+    name: 'Rolex',
+    price: 70,
+    category: 'accessories',
+    img: 'https://shop.el-tasador.com.ar/ficha-454-reloj-rolex-ref-279381rbr-lady-datejust?srsltid=AfmBOopozfwnLdHApR1kr8KULdKK_hISKglZ372NfIxiKt_K-wf0-By9',
+  },
+  {
+    id: 24,
+    name: 'Bag Dolce & Gabbana',
+    price: 50,
+    category: 'accessories',
+    img: 'https://cdn-images.farfetch-contents.com/13/65/87/95/13658795_26912018_600.jpg',
+  },
+  {
+    id: 25,
+    name: 'Ring 18k',
+    price: 50,
+    category: 'accessories',
+    img: 'https://cdn-media.glamira.com/media/product/newgeneration/view/1/sku/16563ayoova1/diamond/lab-grown-diamond_AAA/stone2/lab-grown-diamond_AAA/alloycolour/yellow.jpg',
+  },
+  {
+    id: 26,
+    name: 'Bag Luis Vuitton',
+    price: 50,
+    category: 'accessories',
+    img: 'https://http2.mlstatic.com/D_NQ_NP_601163-MLA92976935689_092025-O.webp',
+  },
 ];
