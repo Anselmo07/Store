@@ -30,7 +30,13 @@ const nextConfig: NextConfig = {
       "img.global.news.samsung.com",
       "bioscomputacion.com.ar",
       "www.stockcenter.com.ar",
-      "sportline.vtexassets.com" 
+      "sportline.vtexassets.com",
+      "es.dreamstime.com",
+      "www.0800donrouch.com.ar",
+      "shop.el-tasador.com.ar",
+      "cdn-images.farfetch-contents.com",
+      "cdn-media.glamira.com",
+      
     ],
   },
 };

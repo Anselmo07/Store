@@ -18,6 +18,7 @@ export default function Page() {
   const [techProducts, setTechProducts] = useState<Product[]>([]);
   const [furnitureProducts, setFurnitureProducts] = useState<Product[]>([]);
   const [sportsProducts, setSportsProducts] = useState<Product[]>([]);
+  const [accessoriesProducts, setAccessoriesProducts] = useState<Product[]>([]);
   const { cart, refreshCart } = useCart();
 
   const itemCount = cart.items.reduce(
@@ -42,15 +43,17 @@ export default function Page() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const [technology, furniture, sport] = await Promise.all([
+        const [technology, furniture, sport, accessories] = await Promise.all([
           getProductsByCategory('technology'),
           getProductsByCategory('furniture'),
           getProductsByCategory('sports'),
+          getProductsByCategory('accessories'),
         ]);
 
         setTechProducts(technology);
         setFurnitureProducts(furniture);
         setSportsProducts(sport);
+        setAccessoriesProducts(accessories);
       } catch (err) {
         console.error('❌ Error loading categorized products:', err);
       }
@@ -175,6 +178,12 @@ export default function Page() {
         subtitle="50% OFF + 18 cuotas"
         title3='Hasta 18 cuotas sin interes'
         description="Promoción válida por tiempo limitado"
+      />
+
+      <ProductHouse
+        title="Accessories"
+        products={accessoriesProducts}
+        onAdd={handleAddToCart}
       />
 
       {/* Combo */}
