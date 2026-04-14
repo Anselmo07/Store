@@ -17,13 +17,15 @@ const ProductList = ({ products, onAdd }: Props) => {
       <div className={styles.grid}>
         {products.map(product => (
           <div key={product.id} className={styles.card}>
-            <Image
-              src={product.img}
-              alt={product.name}
-              width={200}
-              height={200}
-              className={styles.image}
-            />
+            <div className={styles.imageWrapper}>  
+              <Image
+                src={product.img}
+                alt={product.name}
+                width={200}
+                height={200}
+                className={styles.image}
+              />
+            </div>
             <h3 className={styles.name}>{product.name}</h3>
             <p className={styles.price}>${product.price}</p>
             <button

@@ -3,5 +3,5 @@ export interface Product {
   name: string;
   price: number;
   img: string;
-  category: 'technology' | 'furniture';
+  category: 'technology' | 'furniture' | 'sports' | 'Accessories' |'appliances';
 }

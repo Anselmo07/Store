@@ -15,7 +15,7 @@ export const getAllProducts = async (): Promise<Product[]> => {
 };
 
 export const getProductsByCategory = async (
-  category: 'technology' | 'furniture' | 'sports' | 'accessories'
+  category: 'technology' | 'furniture' | 'sports' | 'accessories' | 'appliances'
 ): Promise<Product[]> => {
   const res = await fetch(`${API_URL}/products?category=${category}`, {
     cache: 'no-store',

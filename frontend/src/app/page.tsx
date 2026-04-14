@@ -19,6 +19,7 @@ export default function Page() {
   const [furnitureProducts, setFurnitureProducts] = useState<Product[]>([]);
   const [sportsProducts, setSportsProducts] = useState<Product[]>([]);
   const [accessoriesProducts, setAccessoriesProducts] = useState<Product[]>([]);
+  const [appliancesProducts, setAppliancesProducts] = useState<Product[]>([]);
   const { cart, refreshCart } = useCart();
 
   const itemCount = cart.items.reduce(
@@ -43,17 +44,19 @@ export default function Page() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const [technology, furniture, sport, accessories] = await Promise.all([
+        const [technology, furniture, sport, accessories, appliances ] = await Promise.all([
           getProductsByCategory('technology'),
           getProductsByCategory('furniture'),
           getProductsByCategory('sports'),
           getProductsByCategory('accessories'),
+          getProductsByCategory('appliances'),
         ]);
 
         setTechProducts(technology);
         setFurnitureProducts(furniture);
         setSportsProducts(sport);
         setAccessoriesProducts(accessories);
+        setAppliancesProducts(appliances);
       } catch (err) {
         console.error('❌ Error loading categorized products:', err);
       }
@@ -183,6 +186,12 @@ export default function Page() {
       <ProductHouse
         title="Accessories"
         products={accessoriesProducts}
+        onAdd={handleAddToCart}
+      />
+
+      <ProductHouse
+        title="Appliances"
+        products={appliancesProducts}
         onAdd={handleAddToCart}
       />
 
