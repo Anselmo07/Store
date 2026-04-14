@@ -56,7 +56,7 @@ export const products = [
     name: 'JBL',
     price: 400,
     category: 'technology',
-    img: 'https://heavenstorage.blob.core.windows.net/storageheavenimagenes/0f0b49b9-7465-4399-a1a2-17a5aa644970/images/v2/JBL/4542_xlarge.jpg?sp=r&st=2025-06-19T02:11:26Z&se=2035-06-19T10:11:26Z&spr=https&sv=2024-11-04&sr=c&sig=JTrpEXutEZPdfvCaeQXMhkVlHyRxzKHHZRKwJAxxoq8%3D',
+    img: 'https://quebazar.com.ar/wp-content/uploads/2024/08/jbl-charge3-bk_01_1200x1200.webp',
   },
   {
     id: 9,
@@ -71,6 +71,48 @@ export const products = [
     price: 400,
     category: 'technology',
     img: 'https://bioscomputacion.com.ar/img/Public/1161/87687-producto-producto-ps5-slim-digital-770.jpg',
+  },
+  {
+    id: 28,
+    name: 'Gamer Chair',
+    price: 220,
+    category: 'technology',
+    img: 'https://kanji.com.ar/wp-content/uploads/2025/02/KJ-700T-BR-scaled.jpg',
+  },
+  {
+    id: 29,
+    name: 'Iphone 17 Pro',
+    price: 500,
+    category: 'technology',
+    img: 'https://los40.com/resizer/-kNrCAT73AEGMwMG3u1SeF6f_Eo=/arc-photo-prisaradiolos40/eu-central-1-prod/public/2RD32WH6PZAVXMBD3DL66CHCFM.jpg',
+  },
+  {
+    id: 30,
+    name: 'AirPods',
+    price: 10,
+    category: 'technology',
+    img: 'https://www.ventasrosario.com.ar/wp-content/uploads/2025/09/Apple-AirPods-Pro-3-release-date-price-and-features.png',
+  },
+  {
+    id: 31,
+    name: 'Iphone charger',
+    price: 12,
+    category: 'technology',
+    img: 'https://www.ventasrosario.com.ar/wp-content/uploads/2021/05/D_NQ_NP_829685-MCO71415249222_092023-O.webp',
+  },
+  {
+    id: 32,
+    name: 'Samsung Galaxy S22',
+    price: 250,
+    category: 'technology',
+    img: 'https://img.global.news.samsung.com/ar/wp-content/uploads/2022/02/2-13-Galaxy-S22-Ultra_Front4_S-Pen_Burgundy_HI.jpg',
+  },
+  {
+    id: 33,
+    name: 'Joystick',
+    price: 40,
+    category: 'technology',
+    img: 'https://acdn-us.mitiendanube.com/stores/001/015/175/products/1000000267-f5ff97dbe42d994a6a17348823043537-1024-1024.webp',
   },
 
   // =========================
@@ -145,55 +187,109 @@ export const products = [
   },
   {
     id: 20,
-    name: 'Addidas',
+    name: 'hoodie',
+    price: 10,
+    category: 'sports',
+    img: 'https://production.cdn.vaypol.com/variants/u02dd6d4pqzy2qxyzaqsr213bxzk/e82c8d6171dd25bb538f2e7263b5bc7dfc6a79352d85923074be76df53fbc6f4',
+  },
+  {
+    id: 21,
+    name: 'Nike Zoom Vapor 15',
     price: 90,
     category: 'sports',
-    img: 'https://www.stockcenter.com.ar/botines-futbol-adidas-copa-pure-2-league-fg/ADIF5448_11.5_1.html',
+    img: 'https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw7dabbd1a/products/NIDJ5631-300/NIDJ5631-300-6.JPG',
   },
 
   // =========================
   // Accessories
   // =========================
   {
-    id: 21,
+    id: 22,
     name: 'Glasses',
     price: 10,
     category: 'accessories',
-    img: 'https://es.dreamstime.com/anteojos-de-moda-aislados-en-un-fondo-blanco-image386667943',
+    img: 'https://infinit.la/cdn/shop/files/AERO-OVAL-GOLD-S10-ARMADO.png?v=1768250436&width=1200',
   },
   {
-    id: 22,
+    id: 23,
     name: 'Chain Baby Rouch',
     price: 120,
     category: 'accessories',
     img: 'https://www.0800donrouch.com.ar/images/780/chain_baby_rouch_full_ice_banada_oro_0800_don_rouch2022-06-21-10-33-58pm.jpg',
   },
   {
-    id: 23,
+    id: 24,
     name: 'Rolex',
     price: 70,
     category: 'accessories',
-    img: 'https://shop.el-tasador.com.ar/ficha-454-reloj-rolex-ref-279381rbr-lady-datejust?srsltid=AfmBOopozfwnLdHApR1kr8KULdKK_hISKglZ372NfIxiKt_K-wf0-By9',
-  },
-  {
-    id: 24,
-    name: 'Bag Dolce & Gabbana',
-    price: 50,
-    category: 'accessories',
-    img: 'https://cdn-images.farfetch-contents.com/13/65/87/95/13658795_26912018_600.jpg',
+    img: 'https://eve.us-east-1.linodeobjects.com/assets/rolex/bespoke-v7/watch/featured/portrait/m126613lb-0002.webp',
   },
   {
     id: 25,
+    name: 'Bag Dolce & Gabbana',
+    price: 50,
+    category: 'accessories',
+    img: 'https://www.mycompanero.com/cdn/shop/products/bb6498-az801-80999-black-dolce-gabbana.jpg?v=1681727631',
+  },
+  {
+    id: 26,
     name: 'Ring 18k',
     price: 50,
     category: 'accessories',
     img: 'https://cdn-media.glamira.com/media/product/newgeneration/view/1/sku/16563ayoova1/diamond/lab-grown-diamond_AAA/stone2/lab-grown-diamond_AAA/alloycolour/yellow.jpg',
   },
   {
-    id: 26,
+    id: 27,
     name: 'Bag Luis Vuitton',
     price: 50,
     category: 'accessories',
     img: 'https://http2.mlstatic.com/D_NQ_NP_601163-MLA92976935689_092025-O.webp',
+  },
+
+  // =========================
+  // Appliances
+  // =========================
+
+  {
+    id: 101,
+    name: 'Refrigerator Samsung',
+    price: 1200,
+    img: 'https://http2.mlstatic.com/D_894690-MLA100949583179_122025-C.jpg',
+    category: 'appliances',
+  },
+  {
+    id: 102,
+    name: 'Microwave LG',
+    price: 250,
+    img: 'https://www.lg.com/ar/images/microondas/md07608137/gallery/D-1.jpg',
+    category: 'appliances',
+  },
+  {
+    id: 103,
+    name: 'Washing Machine Whirlpool',
+    price: 900,
+    img: 'https://whirlpoolargio.vtexassets.com/arquivos/ids/166494-300-300?v=638863822460270000&width=300&height=300&aspect=true',
+    category: 'appliances',
+  },
+  {
+    id: 104,
+    name: 'Electric Oven Atma',
+    price: 300,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_978809-MLU73437239534_122023-F.webp',
+    category: 'appliances',
+  },
+  {
+    id: 105,
+    name: 'Air Conditioner BGH',
+    price: 750,
+    img: 'https://www.novogar.com.ar/Image/0/750_750-BS35WCHU_2.webp',
+    category: 'appliances',
+  },
+  {
+    id: 106,
+    name: 'Coffee Maker Philips',
+    price: 180,
+    img: 'https://static.hendel.com/media/catalog/product/cache/b866fd8d147dcce474dc8744e477ca66/4/6/46163-min.jpg',
+    category: 'appliances',
   },
 ];
