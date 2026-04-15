@@ -114,6 +114,20 @@ export const products = [
     category: 'technology',
     img: 'https://acdn-us.mitiendanube.com/stores/001/015/175/products/1000000267-f5ff97dbe42d994a6a17348823043537-1024-1024.webp',
   },
+  {
+    id: 36,
+    name: 'light ring',
+    price: 8,
+    category: 'technology',
+    img: 'https://salonseleccion.com/wp-content/uploads/2022/10/Aro-de-luz-Salon-Seleccion-1000x667.jpg',
+  },
+  {
+    id: 37,
+    name: 'Tablet Huawei',
+    price: 80,
+    category: 'technology',
+    img: 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/latam/common/launch/2025/0515/plp/tablets/product-shelf-and-pop-up/view-all/all-matepad-11-5-s.jpg',
+  },
 
   // =========================
   // FURNITURE
@@ -152,6 +166,13 @@ export const products = [
     price: 290,
     category: 'furniture',
     img: 'https://cdn.mos.cms.futurecdn.net/7RUutAcYjjj6um32NZjBxZ.jpg',
+  },
+  {
+    id: 34,
+    name: 'Rack',
+    price: 50,
+    category: 'furniture',
+    img: 'https://acdn-us.mitiendanube.com/stores/001/823/801/products/copia-de-publicacion-de-instagram-1080x1080-px-3-21-8759a1ede59c4c952216501570394161-1024-1024.jpeg',
   },
 
   // =========================
@@ -261,7 +282,7 @@ export const products = [
     id: 102,
     name: 'Microwave LG',
     price: 250,
-    img: 'https://www.lg.com/ar/images/microondas/md07608137/gallery/D-1.jpg',
+    img: 'https://www.smappliance.com/cdn/shop/files/01_NeoChef_Black_MS2595DIS_PH_Front_1000x.jpg?v=1704964455',
     category: 'appliances',
   },
   {
@@ -275,7 +296,7 @@ export const products = [
     id: 104,
     name: 'Electric Oven Atma',
     price: 300,
-    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_978809-MLU73437239534_122023-F.webp',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnoOC3XPDW9dHL8YwtVIi5DWwXbw-vNc2kMQ&s',
     category: 'appliances',
   },
   {
