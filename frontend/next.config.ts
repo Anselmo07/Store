@@ -49,7 +49,10 @@ const nextConfig: NextConfig = {
          "whirlpoolargio.vtexassets.com",
          "www.mercadolibre.com.ar",
          "www.novogar.com.ar",
-         "static.hendel.com"
+         "static.hendel.com",
+         "salonseleccion.com",
+          "consumer.huawei.com",
+           "www.smappliance.com"
       
     ],
   },
