@@ -313,4 +313,51 @@ export const products = [
     img: 'https://static.hendel.com/media/catalog/product/cache/b866fd8d147dcce474dc8744e477ca66/4/6/46163-min.jpg',
     category: 'appliances',
   },
+
+  // =========================
+  // Tools
+  // =========================
+
+  {
+    id: 38,
+    name: 'Drill',
+    price: 120,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_987177-MLA99402146220_112025-F.webp',
+    category: 'tools',
+  },
+  {
+    id: 39,
+    name: 'Hammer',
+    price: 10,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_793317-MLA99591372342_122025-F.webp',
+    category: 'tools',
+  },
+  {
+    id: 40,
+    name: 'French key',
+    price: 7,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_701215-MLA99504993322_112025-F.webp',
+    category: 'tools',
+  },
+  {
+    id: 40,
+    name: 'Grinder',
+    price: 80,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_687450-MLA99371744100_112025-F.webp',
+    category: 'tools',
+  },
+  {
+    id: 41,
+    name: 'Screwdriver',
+    price: 6,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_625900-MLA74461340797_022024-F.webp',
+    category: 'tools',
+  },
+  {
+    id: 41,
+    name: 'Drill',
+    price: 90,
+    img: 'https://http2.mlstatic.com/D_NQ_NP_2X_629290-MLA108019311117_032026-F.webp',
+    category: 'tools',
+  },
 ];
