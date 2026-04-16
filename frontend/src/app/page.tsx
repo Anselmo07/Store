@@ -20,6 +20,7 @@ export default function Page() {
   const [sportsProducts, setSportsProducts] = useState<Product[]>([]);
   const [accessoriesProducts, setAccessoriesProducts] = useState<Product[]>([]);
   const [appliancesProducts, setAppliancesProducts] = useState<Product[]>([]);
+  const [toolsProducts, setToolsProducts] = useState<Product[]>([]);
   const { cart, refreshCart } = useCart();
 
   const itemCount = cart.items.reduce(
@@ -44,12 +45,13 @@ export default function Page() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const [technology, furniture, sport, accessories, appliances ] = await Promise.all([
+        const [technology, furniture, sport, accessories, appliances, tools ] = await Promise.all([
           getProductsByCategory('technology'),
           getProductsByCategory('furniture'),
           getProductsByCategory('sports'),
           getProductsByCategory('accessories'),
           getProductsByCategory('appliances'),
+          getProductsByCategory('tools'),
         ]);
 
         setTechProducts(technology);
@@ -57,6 +59,7 @@ export default function Page() {
         setSportsProducts(sport);
         setAccessoriesProducts(accessories);
         setAppliancesProducts(appliances);
+        setToolsProducts(tools)
       } catch (err) {
         console.error('❌ Error loading categorized products:', err);
       }
@@ -192,6 +195,12 @@ export default function Page() {
       <ProductHouse
         title="Appliances"
         products={appliancesProducts}
+        onAdd={handleAddToCart}
+      />
+
+      <ProductHouse
+        title="Tools"
+        products={toolsProducts}
         onAdd={handleAddToCart}
       />
 
