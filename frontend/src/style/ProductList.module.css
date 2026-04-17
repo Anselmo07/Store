@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 2.5rem;
   padding: 3rem;
   margin-left: 10%;
@@ -130,4 +130,44 @@
 .button:hover {
   background-color: #0059c1;
   transform: scale(1.05);
+}
+
+@media (max-width: 1366px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 2.5rem;
+    padding: 3rem;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 👈 CLAVE */
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .imageWrapper {
+    height: 140px;
+    padding: 8px;
+  }
+
+  .name {
+    font-size: 0.95rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
 }

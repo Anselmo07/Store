@@ -3,25 +3,27 @@
   padding: 0 2rem;
 }
 
+/* TITULO */
 .title {
   font-size: 2rem;
   color: white;
   margin-bottom: 1.5rem;
-  text-align: left;
   text-align: center;
 }
 
+/* ROW BASE (desktop grande) */
 .row {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scroll-behavior: smooth;
+
+  /* 🔥 SOLUCION HOVER */
+  padding: 1rem 0 1.5rem 0; /* espacio arriba para que no se corte */
 }
 
+/* SCROLLBAR */
 .row::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .row::-webkit-scrollbar-thumb {
@@ -33,6 +35,7 @@
   background: transparent;
 }
 
+/* CARD */
 .card {
   min-width: 220px;
   max-width: 220px;
@@ -42,14 +45,20 @@
   padding: 1rem;
   text-align: center;
   flex-shrink: 0;
-  transition: transform 0.25s ease, border 0.25s ease;
+
+  transition: all 0.25s ease;
+  position: relative; /* 🔥 ayuda visual */
+  z-index: 1;
 }
 
+/* 🔥 HOVER FIX */
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border: 1px solid #00ff88;
+  z-index: 2; /* evita que se “meta abajo” de otras */
 }
 
+/* IMAGEN */
 .image {
   width: 100%;
   height: 180px;
@@ -58,6 +67,7 @@
   background: #000;
 }
 
+/* TEXTO */
 .name {
   font-size: 1rem;
   color: white;
@@ -72,6 +82,7 @@
   margin-bottom: 1rem;
 }
 
+/* BOTON */
 .button {
   background: #00ff88;
   color: black;
@@ -86,9 +97,52 @@
 
 .button:hover {
   background: white;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
+@media (max-width: 1366px) {
+  .section {
+    padding: 0 1.5rem;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .row {
+    justify-content: flex-start; /* clave para scroll */
+    overflow-x: auto;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    margin: auto 10% auto 10%;
+  }
+
+  .card {
+    min-width: 200px;
+    max-width: 200px;
+    padding: 0.9rem;
+  }
+
+  .image {
+    height: 160px;
+  }
+
+  .name {
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* TABLET */
 @media (max-width: 768px) {
   .section {
     padding: 0 1rem;
@@ -105,5 +159,36 @@
 
   .image {
     height: 150px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .row {
+    gap: 1rem;
+  }
+
+  .card {
+    min-width: 160px;
+    max-width: 160px;
+    padding: 0.8rem;
+  }
+
+  .image {
+    height: 130px;
+  }
+
+  .name {
+    font-size: 0.9rem;
+    min-height: 40px;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: 0.5rem;
+    font-size: 0.9rem;
   }
 }

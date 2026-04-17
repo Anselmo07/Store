@@ -3,12 +3,15 @@
   color: white;
   text-align: center;
   padding: 2rem;
-  margin: 3rem 20% 0 20%;
+  margin: 3rem auto 0 auto;
+  max-width: 900px; /* 🔥 controla ancho en desktop */
+  width: 90%;
   border-radius: 12px;
   border: 3px solid blue;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* TITULO */
 .title {
   font-size: 2rem;
   font-weight: bold;
@@ -16,22 +19,26 @@
   color: blue;
 }
 
+/* SUBTITULO (🔥 FIX CLAVE) */
 .subtitle {
   font-size: 1.4rem;
   font-weight: 500;
-  margin: 0 25rem 0 25rem;
+  margin: 1rem auto;
   border-radius: 10px;
   border: 1px solid blue;
   background-color: blue;
   padding: 12px;
+  max-width: 600px; /* 👈 reemplaza margin gigante */
+  width: 100%;
 }
 
+/* TEXTO SECUNDARIO */
 .title3 {
-    display: block;
-    margin-top: 0.8rem;
-    font-size: 1rem;
-    opacity: 0.9;
-    color: blue;
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  opacity: 0.9;
+  color: blue;
 }
 
 .description {
@@ -40,4 +47,57 @@
   font-size: 0.9rem;
   opacity: 0.9;
   color: black;
+}
+
+/* ========================= */
+/* 📱 TABLET */
+/* ========================= */
+@media (max-width: 768px) {
+  .banner {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .title3 {
+    font-size: 0.95rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 480px) {
+  .banner {
+    padding: 1.2rem;
+    width: 95%;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .title3 {
+    font-size: 0.85rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+  }
 }
