@@ -21,6 +21,7 @@ export default function Page() {
   const [accessoriesProducts, setAccessoriesProducts] = useState<Product[]>([]);
   const [appliancesProducts, setAppliancesProducts] = useState<Product[]>([]);
   const [toolsProducts, setToolsProducts] = useState<Product[]>([]);
+
   const { cart, refreshCart } = useCart();
 
   const itemCount = cart.items.reduce(
@@ -31,6 +32,7 @@ export default function Page() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // 🔹 Cart ID
   const getCartId = () => {
     let cartId = localStorage.getItem('cartId');
 
@@ -42,10 +44,18 @@ export default function Page() {
     return cartId;
   };
 
+  // 🔹 Fetch productos por categoría
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const [technology, furniture, sport, accessories, appliances, tools ] = await Promise.all([
+        const [
+          technology,
+          furniture,
+          sports,
+          accessories,
+          appliances,
+          tools,
+        ] = await Promise.all([
           getProductsByCategory('technology'),
           getProductsByCategory('furniture'),
           getProductsByCategory('sports'),
@@ -56,10 +66,10 @@ export default function Page() {
 
         setTechProducts(technology);
         setFurnitureProducts(furniture);
-        setSportsProducts(sport);
+        setSportsProducts(sports);
         setAccessoriesProducts(accessories);
         setAppliancesProducts(appliances);
-        setToolsProducts(tools)
+        setToolsProducts(tools);
       } catch (err) {
         console.error('❌ Error loading categorized products:', err);
       }
@@ -68,6 +78,32 @@ export default function Page() {
     fetchProducts();
   }, []);
 
+  // 🔹 Unir TODOS los productos
+  const allProducts = [
+    ...techProducts,
+    ...furnitureProducts,
+    ...sportsProducts,
+    ...accessoriesProducts,
+    ...appliancesProducts,
+    ...toolsProducts,
+  ];
+
+  // 🔍 Búsqueda GLOBAL
+  const filteredProducts = allProducts.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // 🔹 Separar por categoría
+  const filteredTech = filteredProducts.filter(p => p.category === 'technology');
+  const filteredFurniture = filteredProducts.filter(p => p.category === 'furniture');
+  const filteredSports = filteredProducts.filter(p => p.category === 'sports');
+  const filteredAccessories = filteredProducts.filter(p => p.category === 'Accessories');
+  const filteredAppliances = filteredProducts.filter(p => p.category === 'appliances');
+  const filteredTools = filteredProducts.filter(p => p.category === 'tools');
+
+  const isSearching = searchTerm.length > 0;
+
+  // 🛒 Add
   const handleAddToCart = async (id: number) => {
     try {
       const cartId = getCartId();
@@ -89,6 +125,7 @@ export default function Page() {
     }
   };
 
+  // ❌ Remove
   const handleRemoveFromCart = async (id: number) => {
     try {
       const cartId = getCartId();
@@ -108,15 +145,9 @@ export default function Page() {
     }
   };
 
-  const filteredTechProducts = techProducts.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const allProducts = [...techProducts, ...furnitureProducts];
-
   return (
     <div className={styles.container}>
-      {/* Navbar */}
+      {/* NAVBAR */}
       <header className={styles.navbar}>
         <div className={styles.navContent}>
           <input
@@ -141,7 +172,7 @@ export default function Page() {
         </div>
       </header>
 
-      {/* Modal del carrito */}
+      {/* MODAL CART */}
       {isCartOpen && (
         <div
           className={styles.modalOverlay}
@@ -156,53 +187,65 @@ export default function Page() {
         </div>
       )}
 
-      {/* Tecnología */}
-      <ProductList products={filteredTechProducts} onAdd={handleAddToCart} />
+      {/* 🔍 MODO BUSQUEDA */}
+      {isSearching ? (
+        <ProductList products={filteredProducts} onAdd={handleAddToCart} />
+      ) : (
+        <>
+          {/* Tecnología */}
+          <ProductList products={techProducts} onAdd={handleAddToCart} />
 
-      {/* Muebles */}
-      <ProductHouse
-        title="Furniture for your home"
-        products={furnitureProducts}
-        onAdd={handleAddToCart}
-      />
+          {/* Muebles */}
+          <ProductHouse
+            title="Furniture for your home"
+            products={furnitureProducts}
+            onAdd={handleAddToCart}
+          />
 
-      {/* Carrusel */}
-      <ProductCarousel
-        topProducts={filteredTechProducts.slice(0, 8)}
-        bottomProducts={furnitureProducts.slice(0, 8)}
-        minVisualCount={40}
-      />
+          {/* Carrusel */}
+          <ProductCarousel
+            topProducts={techProducts.slice(0, 8)}
+            bottomProducts={furnitureProducts.slice(0, 8)}
+            minVisualCount={40}
+          />
 
-      <ProductHouse
-        title="Sports"
-        products={sportsProducts}
-        onAdd={handleAddToCart}
-      />
+          {/* Sports */}
+          <ProductHouse
+            title="Sports"
+            products={sportsProducts}
+            onAdd={handleAddToCart}
+          />
 
-      <PromoBanner
-        title="LIQUIDACION TOTAL"
-        subtitle="50% OFF + 18 cuotas"
-        title3='Hasta 18 cuotas sin interes'
-        description="Promoción válida por tiempo limitado"
-      />
+          {/* Accessories */}
+          <ProductHouse
+            title="Accessories"
+            products={accessoriesProducts}
+            onAdd={handleAddToCart}
+          />
 
-      <ProductHouse
-        title="Accessories"
-        products={accessoriesProducts}
-        onAdd={handleAddToCart}
-      />
+          {/* Banner */}
+          <PromoBanner
+            title="TOTAL CLEARANCE"
+            subtitle="50% OFF + 18 installments"
+            title3="Up to 18 interest-free installments"
+            description="Limited time offer"
+          />
 
-      <ProductHouse
-        title="Appliances"
-        products={appliancesProducts}
-        onAdd={handleAddToCart}
-      />
+          {/* Appliances */}
+          <ProductHouse
+            title="Appliances"
+            products={appliancesProducts}
+            onAdd={handleAddToCart}
+          />
 
-      <ProductHouse
-        title="Tools"
-        products={toolsProducts}
-        onAdd={handleAddToCart}
-      />
+          {/* Tools */}
+          <ProductHouse
+            title="Tools"
+            products={toolsProducts}
+            onAdd={handleAddToCart}
+          />
+        </>
+      )}
 
       {/* Combo */}
       <BestCombo products={allProducts} />

@@ -1,63 +1,111 @@
-.section{
-  background-image: url("https://static.vecteezy.com/system/resources/previews/025/500/988/non_2x/cropped-shot-of-women-with-shopping-bags-sitting-on-bench-in-city-group-of-women-sitting-on-the-bench-with-shopping-bags-ai-generated-free-photo.jpg");
-  border-radius: 8px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding: 2rem;
+.section {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 2rem 1rem;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* CONTENEDOR */
 .container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* TITLE */
 .title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
   margin-bottom: 1.5rem;
   color: #0070f3;
-  text-align: center;
 }
 
-.empty{
+/* EMPTY */
+.empty {
   text-align: center;
-  color: rgb(14, 13, 13);
+  color: #555;
+  font-size: 0.95rem;
 }
 
+/* LIST */
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* ITEM */
 .item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 0;
-  border-bottom: 2px solid #eee;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #f1f1f1;
+  transition: all 0.2s ease;
 }
 
+.item:hover {
+  background: #fafafa;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* PRODUCT INFO */
 .name {
+  flex: 1;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: black;
+  color: #222;
 }
 
+/* RIGHT SIDE */
 .priceWrapper {
   display: flex;
-  color: black;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+}
+
+/* IMAGE */
+.productThumb {
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+/* PRICE */
+.price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* REMOVE BUTTON */
+.removeBtn {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.removeBtn:hover {
+  background: #fee2e2;
+  border-color: #fecaca;
 }
 
 .trashIcon {
-  vertical-align: middle;
-  border-radius: 4px;
   transition: transform 0.2s ease;
 }
 
@@ -65,32 +113,24 @@
   transform: scale(1.2);
 }
 
-.removeBtn {
-  background-color: #fff;
-  padding: 4px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-}
-
+/* TOTAL */
 .total {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 600;
   text-align: right;
   color: #0070f3;
 }
 
+/* MODAL */
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,16 +138,44 @@
 }
 
 .modalContent {
-  background-color: white;
-  padding: 24px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 95%;
+  max-width: 520px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.productThumb {
-  border-radius: 6px;
-  object-fit: cover;
+@media (max-width: 768px) {
+  .container {
+    padding: 1.2rem;
+    border-radius: 14px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .priceWrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .productThumb {
+    width: 50px;
+    height: 50px;
+  }
+
+  .total {
+    font-size: 1.1rem;
+    text-align: left;
+  }
 }
 
+.item {
+  animation: fadeIn 0.3s ease;
+}
