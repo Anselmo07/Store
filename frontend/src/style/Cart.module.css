@@ -7,7 +7,6 @@
   align-items: center;
 }
 
-/* CONTENEDOR */
 .container {
   width: 100%;
   max-width: 520px;
@@ -17,7 +16,6 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* TITLE */
 .title {
   font-size: 1.6rem;
   font-weight: 600;
@@ -26,21 +24,18 @@
   color: #0070f3;
 }
 
-/* EMPTY */
 .empty {
   text-align: center;
   color: #555;
   font-size: 0.95rem;
 }
 
-/* LIST */
 .list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* ITEM */
 .item {
   display: flex;
   align-items: center;
@@ -58,7 +53,6 @@
   padding-right: 8px;
 }
 
-/* PRODUCT INFO */
 .name {
   flex: 1;
   font-size: 0.95rem;
@@ -66,28 +60,24 @@
   color: #222;
 }
 
-/* RIGHT SIDE */
 .priceWrapper {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
 
-/* IMAGE */
 .productThumb {
   border-radius: 8px;
   object-fit: cover;
   border: 1px solid #eee;
 }
 
-/* PRICE */
 .price {
   font-size: 0.95rem;
   font-weight: 600;
   color: #111;
 }
 
-/* REMOVE BUTTON */
 .removeBtn {
   background: #fff;
   border: 1px solid #eee;
@@ -113,7 +103,6 @@
   transform: scale(1.2);
 }
 
-/* TOTAL */
 .total {
   margin-top: 1.8rem;
   font-size: 1.2rem;
@@ -122,7 +111,6 @@
   color: #0070f3;
 }
 
-/* MODAL */
 .modalOverlay {
   position: fixed;
   top: 0;
