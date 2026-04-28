@@ -1,7 +1,7 @@
-import mercadopago from "mercadopago";
+// import mercadopago from "mercadopago";
 
-mercadopago.configure ({
-  access_token: process.env.MP_ACCESS_TOKEN,
-});
+// mercadopago.configure ({
+//   access_token: process.env.MP_ACCESS_TOKEN,
+// });
 
-export default mercadopago;
+// export default mercadopago;
